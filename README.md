@@ -1,0 +1,3 @@
+# PokéApp - Ionic + Angular
+
+Este projeto foi desenvolvido utilizando Ionic com Angular, consumindo a PokeAPI. A arquitetura foi baseada em componentes reutilizáveis e serviços injetáveis. A navegação foi feita via Angular Router e o estado de favoritos é persistido localmente. O design é responsivo para dispositivos móveis. Utilizei boas práticas como organização modular, commit semântico e documentação clara. A estrutura favorece testes e escalabilidade. Implementei paginação, favoritos, e detalhamento rico de cada Pokémon. O projeto está pronto para ser estendido com novos recursos como testes automatizados e autenticação.
