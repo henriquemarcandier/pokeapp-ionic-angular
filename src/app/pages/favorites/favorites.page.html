@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Favoritos</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="!isLoading && favorites.length > 0">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" size-md="4" *ngFor="let pokemon of favorites">
+        <ion-card>
+          <ion-img [src]="pokemon.sprites.front_default"></ion-img>
+          <ion-card-header>
+            <ion-card-title class="capitalize">{{ pokemon.name }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-button expand="block" [routerLink]="['/details', pokemon.name]">
+              Ver detalhes
+            </ion-button>
+            <ion-button
+              expand="block"
+              fill="outline"
+              color="danger"
+              (click)="removeFavorite(pokemon.name)"
+            >
+              <ion-icon name="trash"></ion-icon>
+              Remover
+            </ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-content *ngIf="isLoading">
+  <ion-spinner name="crescent" class="spinner-center"></ion-spinner>
+</ion-content>
+
+<ion-content *ngIf="!isLoading && favorites.length === 0">
+  <ion-text class="ion-padding">
+    <p>Você ainda não tem Pokémons favoritos.</p>
+  </ion-text>
+</ion-content>
